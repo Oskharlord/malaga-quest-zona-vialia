@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 260 15% 8%;
+    --foreground: 60 9% 98%;
+    --card: 260 20% 12%;
+    --card-foreground: 60 9% 98%;
+    --popover: 260 20% 12%;
+    --popover-foreground: 60 9% 98%;
+    --primary: 47 96% 53%;
+    --primary-foreground: 26 83% 14%;
+    --secondary: 260 30% 25%;
+    --secondary-foreground: 60 9% 98%;
+    --muted: 260 20% 15%;
+    --muted-foreground: 24 5% 64%;
+    --accent: 280 100% 70%;
+    --accent-foreground: 60 9% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 9% 98%;
+    --border: 280 50% 30%;
+    --input: 260 20% 12%;
+    --ring: 280 100% 70%;
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Crimson Text', serif;
+    background:
+      radial-gradient(circle at 25% 25%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(79, 28, 119, 0.1) 0%, transparent 50%),
+      linear-gradient(135deg, hsl(260 15% 8%) 0%, hsl(260 20% 4%) 50%, hsl(260 15% 8%) 100%);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .mystical-glow {
+    box-shadow:
+      0 0 20px hsl(280 100% 70% / 0.4),
+      0 0 40px hsl(280 100% 70% / 0.3),
+      0 0 80px hsl(280 100% 70% / 0.1);
+  }
+
+  .golden-glow {
+    box-shadow:
+      0 0 20px hsl(47 96% 53% / 0.3),
+      0 0 40px hsl(47 96% 53% / 0.2),
+      0 0 80px hsl(47 96% 53% / 0.1);
+  }
+
+  .mystic-gradient {
+    background: linear-gradient(
+      45deg,
+      hsl(280 100% 70% / 0.8) 0%,
+      hsl(47 96% 53% / 0.6) 50%,
+      hsl(280 100% 70% / 0.8) 100%
+    );
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .floating-icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .floating-icons::before {
+    content: '🗝️';
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: 2rem;
+    opacity: 0.1;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .floating-icons::after {
+    content: '🏛️';
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+    font-size: 3rem;
+    opacity: 0.1;
+    animation: float 10s ease-in-out infinite reverse;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+      opacity: 0.1;
+    }
+    50% {
+      transform: translateY(-20px) rotate(5deg);
+      opacity: 0.2;
+    }
+  }
+
+  .typing-animation {
+    overflow: hidden;
+    border-right: 2px solid hsl(180 100% 50%);
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% {
+      border-color: hsl(180 100% 50%);
+      box-shadow: 0 0 5px hsl(180 100% 50%);
+    }
+  }
+
+  .mystical-text {
+    font-family: 'Cinzel', serif;
+    color: hsl(280 100% 70%);
+    text-shadow: 0 0 5px hsl(280 100% 70% / 0.5);
+  }
+
+  .whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 50;
+    animation: pulse 2s infinite;
+    transition: transform 0.3s ease;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  .scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+
+  /* Estilos redondeados y orgánicos */
+  .rounded-organic {
+    border-radius: 2rem 3rem 2rem 3rem;
+  }
+
+  .rounded-smooth {
+    border-radius: 1.5rem 2.5rem 1.5rem 2.5rem;
+  }
+
+  .blob-shape {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  .oval-card {
+    border-radius: 3rem;
+  }
+
+  .bubble-effect {
+    border-radius: 60% 55% 50% 65% / 55% 70% 50% 65%;
+  }
+}
